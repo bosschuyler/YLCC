@@ -1,0 +1,43 @@
+.notice-area-gray {
+	background-color:#EFEFEF;
+	border:1px solid #EEEEEE;
+	padding:5px;
+	border-radius:5px;
+}
+.notice-area-blue {
+	background-color:#f1f4f7;
+	border:1px solid #cbd7e2;
+	padding:5px;
+	border-radius:5px;
+}
+.columns .half {
+	width:49%;
+}
+.half {
+	width:50%;
+}
+/* MARGINS */
+
+
+
+.margin-bottom-large {
+	margin-bottom:20px;
+}
+.margin-left-large {
+	margin-left: 20px;
+}
+.margin-small {
+	margin: .5%;
+}
+.rounded-corners {
+	border-radius: 4px;
+}
+.float-left {
+	float:left;
+}
+.float-right {
+	float:right;
+}
+.clear {
+	clear:both;
+}

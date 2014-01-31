@@ -1,0 +1,158 @@
+	.timestamp {
+		color: #999;
+	}	
+	.label-italic {
+		font-style:italic;
+		margin-right:5px;
+	}
+	.rounded-label {
+		width:150px;
+		height: 20px;
+		min-width: 16px;
+		padding: 4px 5px;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 20px;
+		text-align: center;
+		text-shadow: 0 1px 0 #fff;
+		background-color: #eee;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+	.top-label {
+		width:150px;
+		height: 20px;
+		min-width: 16px;
+		padding: 4px 5px;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 20px;
+		text-align: center;
+		text-shadow: 0 1px 0 #fff;
+		background-color: #eee;
+		border: 1px solid #ccc;
+		border-radius: 4px 4px 0px 0px;
+		border-bottom:0px;
+		text-align:left;
+	}
+
+/* CONTAINERS */
+	.description {
+		font-size:12px;
+	}
+
+	.detail-card {			
+		border-top: 1px solid #CCC;
+		border-bottom: 1px solid #CCC;
+		padding:10px 10px 10px 0px;
+	}
+	.detail-row {
+		margin:0px;
+		padding:2px;			
+	}
+	.detail-row:last-child {
+		border-bottom:none;	
+	}
+	.detail-column {			
+		float:left;
+		width:110px;
+	}
+	.detail-data {
+		margin-left:10px;
+		float:left;
+	}
+	
+	.date-box {
+		padding:10px;
+		border:1px solid #DFE0EA;	
+		border-radius: 10px;
+	}
+	.date-box h3 {
+		margin:0px;	
+	}
+	.date-box h4 {
+		margin: 15px 0px 10px 0px;	
+	}
+
+	.notice-area-gray {
+		background-color:#EFEFEF;
+		border:1px solid #EEEEEE;
+		padding:5px;
+		border-radius:5px;
+	}
+	.notice-area-blue {
+		background-color:#f1f4f7;
+		border:1px solid #cbd7e2;
+		padding:5px;
+		border-radius:5px;
+	}	
+	.notice-area-error {
+		background-color:#D59F9F;
+		border:1px solid #ef7c61;
+		padding:5px;
+		border-radius:5px;
+	}	
+	.error {
+		color: red;
+	}
+	.red-highlight {
+		border:1px solid red;
+		border-radius:4px;
+	}
+/* UTILITY CLASSES */
+	.bold {
+		font-weight: bold;
+	}
+	.rounded-corners {
+		border-radius: 4px;
+	}
+	.float-left {
+		float:left;
+	}
+	.float-right {
+		float:right;
+	}
+	.clear, .clear-both {
+		clear:both;
+	}
+	.clear-after:after {
+		content: "."; 
+		visibility: hidden; 
+		display: block; 
+		height: 0; 
+		clear: both;
+	}
+	.columns .half {
+		width:49%;
+	}
+	.half {
+		width:50%;
+	}
+	
+	.search-group {
+		float:left;
+		width:30%;	
+	}
+	.group-label {
+		font-size: 20px;
+		margin-top:5px; 
+		margin-right:10px;
+	}
+	
+	/* MARGINS */
+		.margin-top-small {
+			margin-top:5px;
+		}
+		.margin-top {
+			margin-top: 10px;
+		}
+		.margin-bottom-large {
+			margin-bottom:20px;
+		}
+		.margin-left-large {
+			margin-left: 20px;
+		}
+		.margin-small {
+			margin: .5%;
+		}
+		

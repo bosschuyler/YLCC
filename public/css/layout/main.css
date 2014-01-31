@@ -1,0 +1,112 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+* {
+	margin:0;
+	padding:0;
+}
+#homepage-content p {
+	margin: 15px 0px;
+}
+#homepage-content .homepage-section {
+	margin: 30px 0px 0px 0px;
+}
+#homepage-content .homepage-section:first-child {
+	margin: 0px;
+}
+.shadow {
+	-moz-box-shadow: 3px 3px 4px #999;
+	-webkit-box-shadow: 3px 3px 4px #999;
+	box-shadow: 3px 3px 4px #999;
+	/* For IE 8 */
+
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+
+	/* For IE 5.5 - 7 */
+
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+.sub-image {
+	float:left;
+	margin:1%;
+	width: 31.33%;
+}
+body {
+	margin:0px;
+	background-image: url('/img/textures/main_bg.jpg');
+	background-position:center;
+}
+.bg-fader {
+	/*background-color:#FFF;*/
+
+	position:fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	opacity:0.2;
+	filter:alpha(opacity=20); /* For IE8 and earlier */
+	z-index:20;
+}
+.menu-bar {
+	position:absolute;
+	top:-21px;
+	right:-15px;
+	/*background-color:#CCC;*/
+
+	border-radius:14px;
+	background: #CCC; /* for non-css3 browsers */
+ filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9a9a9', endColorstr='#7a7a7a'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#a9a9a9), to(#7a7a7a)); /* for webkit browsers */
+	background: -moz-linear-gradient(top, #a9a9a9, #7a7a7a); /* for firefox 3.6+ */
+	border-top: solid 1px #999;
+	padding:0px 3px;
+}
+.menu-link {
+	float:left;
+	font-size:15px;
+	padding:3px 10px;
+	margin:5px 3px 5px 3px;
+	border-radius:10px;
+	cursor:pointer;
+	color: #FFF;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+.menu-link-active, .menu-link:hover {
+	color:#444;
+	background: #d1d1d1; /* for non-css3 browsers */
+ filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ebebeb', endColorstr='#a1a1a1'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#ebebeb), to(#a1a1a1)); /* for webkit browsers */
+	background: -moz-linear-gradient(top, #ebebeb, #a1a1a1); /* for firefox 3.6+ */
+	border-top: solid 1px #f8f8f8;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+}
+.menu-spacer {
+	float:left;
+	padding:5px;
+	font-size:15px;
+}
+.main-wrapper {
+	padding:10px;
+	position:relative;
+	z-index:21;
+}
+.header-wrapper {
+	border-radius: 3px;
+	max-width: 900px;
+	margin:auto;/*background-color:white;*/
+
+}
+.body-wrapper {
+	position:relative;
+	background-color:white;
+	border-radius: 3px;
+	max-width:900px;
+	margin:15px auto;
+	padding:20px 0px 0px 0px;
+}
