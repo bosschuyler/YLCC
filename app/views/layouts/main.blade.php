@@ -21,8 +21,7 @@
 <div class="bg-fader"></div>
 <div class="main-wrapper">
 	<div class="header-wrapper">
-		<div style="padding:20px;"> <img src="/img/main/logo.png" width="500" > </div>
-		<br>
+		<img src="/img/main/logo.png">
 	</div>
 	<div class="body-wrapper shadow">
     	

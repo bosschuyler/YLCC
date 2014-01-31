@@ -20,37 +20,50 @@
 
 @section('content')
 	<div class="wrapper">
-        <div style="margin:auto;">
-            <h1>Inquiries</h1>
-            <br />
-              
-           	<div class="input-group search-group"> <span class="input-group-addon">Search</span>
-				<input class="form-control" name="search" id="search" type="text" />
-			</div>			
-            
-            <div class="float-left clear-after margin-left-large">
-                <div class="float-left group-label">Sort:</div>
-                <div class="float-left btn-group">            	
-                    <div class="btn btn-default sort-link" data-default="asc" data-order="name">Name</div>
-                    <div class="btn btn-default sort-link active" data-default="desc" data-order="created">Created<i class="glyphicon glyphicon-arrow-down"></i></div>
+    	<div class="row">
+			<div class="col-sm-12">
+           		<h1>Inquiries</h1>
+            </div>
+        </div>
+		<div class="row">
+           	<div class="col-sm-4 margin-bottom">
+                <div class="input-group"> <span class="input-group-addon">Search</span>
+                    <input class="form-control" name="search" id="search" type="text" />
+                </div>			
+            </div>
+           
+           	<div class="col-sm-4 margin-bottom">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-2 group-label">Sort:</div>
+                    <div class="col-xs-9 col-sm-10">       
+                    	<div class="btn-group">     	
+                            <div class="btn btn-default sort-link" data-default="asc" data-order="name">Name</div>
+                            <div class="btn btn-default sort-link active" data-default="desc" data-order="created">Created<i class="glyphicon glyphicon-arrow-down"></i></div>
+                        </div>
+                    </div>
                 </div>
 			</div>
             
-            <div class="float-right clear-after">
-                <div class="float-left group-label">Status:</div>
-                <div class="float-left btn-group">            	
-                    <div class="btn btn-default status-link" data-status="All">All</div>
-                    <div class="btn btn-default status-link active" data-status="New">New</div>
-                    <div class="btn btn-default status-link" data-status="Read">Read</div>
+            <div class="col-sm-4 margin-bottom">
+                <div class="row">
+                    <div class="col-xs-3 col-sm-3 group-label">Status:</div>
+                    <div class="col-xs-9 col-sm-9">
+                        <div class="btn-group">            	
+                            <div class="btn btn-default status-link" data-status="All">All</div>
+                            <div class="btn btn-default status-link active" data-status="New">New</div>
+                            <div class="btn btn-default status-link" data-status="Read">Read</div>
+                        </div>
+					</div>
                 </div>
             </div>
-            
-            <div class="clear"></div>
-            <br />
-            
-            <div id="list-content" data-url="{{ URL::route('inquiry.list') }}">
-            	{{ $items }}
-			</div>
 		</div>
+        <div class="row">
+        	<div class="col-sm-12 margin-bottom">            
+                <div id="list-content" data-url="{{ URL::route('inquiry.list') }}">
+                    {{ $items }}
+                </div>
+            </div>
+		</div>
+    
     </div>
 @stop

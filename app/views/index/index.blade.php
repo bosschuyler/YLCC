@@ -22,8 +22,8 @@
     <div role="main" class="main">
         <div class="columns"> 
         	<div class="row">
-            	<div class="col-sm-6"><img src="/img/slider/any6.jpg" style="width:100%" /></div>
-                <div class="col-sm-6">
+            	<div class="col-sm-6 margin-top"><img src="/img/slider/any6.jpg" style="width:100%" /></div>
+                <div class="col-sm-6 margin-top">
                     <div class="notice-area-blue"> <span style="font-weight:bold; margin-right:5px;">Proverbs 22:6</span><span style="font-style:italic">(New King James Version)</span><br />
                         6 Train up a child in the way he should go,<br />
                         And when he is old he will not depart from it.<br />

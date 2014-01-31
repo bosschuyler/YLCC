@@ -11,7 +11,9 @@
 @section('content')
 <div class="wrapper row text-center">
 	<div class="col-sm-6 col-sm-offset-3 col-xs-12">
-		<h1>Contact Us</h1>
+    	<div class="row">
+			<h1 class="text-left">Contact Us</h1>
+        </div>
         <div class="row">
             <div class="col-xs-12 notice-area-blue margin-bottom-large text-left">Want more information? Fill this out and send us your questions. We'll get back to you as soon as we can.</div>
             @if (Session::has('process-error'))

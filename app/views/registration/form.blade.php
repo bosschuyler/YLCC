@@ -14,7 +14,9 @@
 @section('content')
 <div class="wrapper row text-center">
 	<div class="col-sm-6 col-sm-offset-3 col-xs-12">
-		<h1 class="text-center">Pre-Register</h1>
+		<div class="row">
+			<h1 class="text-left">Pre-Register</h1>
+        </div>
         <div class="row">
             <div class="col-xs-12 notice-area-blue margin-bottom-large text-left">Want to sign-up your child? Just fill out the following information to get this process going!</div>
             @if (Session::has('loginError'))

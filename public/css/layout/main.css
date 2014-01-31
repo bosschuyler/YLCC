@@ -103,7 +103,10 @@ body {
 	border-radius: 3px;
 	max-width: 900px;
 	margin:auto;/*background-color:white;*/
-
+	padding:20px;
+}
+.header-wrapper img {
+	max-width:500px;
 }
 .body-wrapper {
 	position:relative;
@@ -115,8 +118,14 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+	.body-wrapper .wrapper {
+		padding:0px 10px;	
+	}
 	.body-wrapper{
 		padding:0;	
+	}
+	.header-wrapper img {
+		width:100%;
 	}
 	.menu-bar {		
 		position:relative;
