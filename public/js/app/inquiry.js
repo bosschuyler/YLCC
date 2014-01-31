@@ -1,23 +1,20 @@
 // JavaScript Document
 var inquiry = {	
 	create: function() {
-		var obj = {};		
-		obj.data = {
+		this.data = {
 			id: '',
 			status: ''	
 		};		
 		
-		obj.setStatus = function(value) {
-			var self = this;
-			self.data.status = value;	
+		this.setStatus = function(value) {
+			this.data.status = value;	
 		};
 				
-		obj.setId = function(value) {
-			var self = this;
-			self.data.id = value;
+		this.setId = function(value) {
+			this.data.id = value;
 		};
 				
-		obj.updateStatus = function(url, callback) {
+		this.updateStatus = function(url, callback) {
 			var self = this;
 			jQuery.ajax({
 				url: url,
@@ -28,20 +25,16 @@ var inquiry = {
 				}
 			});
 		}
-		return obj;
 	},
 	updateHandler: function() {
-		//DOM object that was clicked
-		var self = this;		
-		
 		//retrieve the data off the DATA DOM
-		var url = jQuery(self).data('url');
-		var callback = jQuery(self).data('callback');	
-		var status = jQuery(self).data('status');
-		var id = jQuery(self).data('id');
+		var url = jQuery(this).data('url');
+		var callback = jQuery(this).data('callback');	
+		var status = jQuery(this).data('status');
+		var id = jQuery(this).data('id');
 		
 		//create instance of the inquiry object.
-		var temp = inquiry.create();
+		var temp = new inquiry.create();
 		temp.setStatus(status);
 		temp.setId(id);		
 		temp.updateStatus(url, callback);
