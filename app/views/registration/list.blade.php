@@ -32,8 +32,8 @@
             <div class="float-left clear-after margin-left-large">
                 <div class="float-left group-label">Sort:</div>
                 <div class="float-left btn-group">            	
-                    <div class="btn btn-default sort-link" data-order-type="asc" data-default="asc" data-order="name">Name</div>
-                    <div class="btn btn-default sort-link active" data-order-type="desc" data-default="desc" data-order="created">Created<i class="glyphicon glyphicon-arrow-down"></i></div>
+                    <div class="btn btn-default sort-link" data-default="asc" data-order="name">Name</div>
+                    <div class="btn btn-default sort-link active" data-default="desc" data-order="created">Created<i class="glyphicon glyphicon-arrow-down"></i></div>
                 </div>
 			</div>
             

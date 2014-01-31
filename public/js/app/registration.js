@@ -41,152 +41,157 @@ var registration = {
 	}
 }
 
-registration.list = (function() {
-	var obj = {};
-	obj.url = '';
-	obj.iconClass = 'glyphicon';
-	obj.data = {
+
+registration.list = function(selector) {
+	var self = this;
+	
+	this.wrapperElement = jQuery(selector);
+	this.url = this.wrapperElement.data('url');
+	this.baseIconClass = "glyphicon";
+	
+	this.data = {
 		page: 1,
 		order: 'created',
 		order_type: 'desc',
 		search: '',
-		status: 'Pending'
-	}
-	
-	/* UTILITY */
-	obj.getIcon = function(type) {
-		if(type == 'asc') {
-			return 'glyphicon-arrow-up';	
-		} 
-		return 'glyphicon-arrow-down';
-	}
-	obj.orderFlip = function(type) {
-		if(type == 'asc') {
-			return 'desc';	
-		} 
-		return 'asc';
-	}
-	obj.removeSortIcon = function() {
-		jQuery('.' + obj.iconClass).remove();	
-	}
-	obj.generateSortIcon = function() {
-		var icon = jQuery('<i></i>');
-		icon.addClass(obj.iconClass);
-		icon.addClass(obj.getIcon(obj.data.order_type));
-		return icon;
+		status: 'Pending'	
 	}
 	
 	
-	/* SET PROPERTIES */	
-	obj.setUrl = function(url) {
-		obj.url = url;
-	}	
-	obj.setPage = function(page) {
-		obj.data.page = page;
-	}
-	obj.setOrder = function(value) {
-		obj.data.order = value;
-	}	
-	obj.setOrderType = function(value) {
-		obj.data.order_type = value;	
-	}	
-	obj.setStatus = function(value) {
-		obj.data.status = value;	
-	}	
-	obj.setSearch = function(value) {
-		obj.data.search = value;
-	}
+	/* PROCESSING FUNCTIONS */			
+		this.flipOrder = function() {
+			if(this.getOrderType() == 'asc') {
+				this.setOrderType('desc');
+			} else {
+				this.setOrderType('asc');	
+			}
+		}
+		this.getIcon = function() {
+			if(this.getOrderType() == 'asc') {
+				return 'glyphicon-arrow-up';	
+			} 
+			return 'glyphicon-arrow-down';	
+		}
+		this.removeSortIcon = function() {
+			jQuery('.' + this.getBaseIcon()).remove();	
+		}	
+		this.generateSortIcon = function() {
+			var icon = jQuery('<i></i>');
+			icon.addClass(this.getBaseIcon());
+			icon.addClass(this.getIcon());
+			return icon;
+		}
+	
+	/* GETTERS/SETTERS */
+		this.setUrl = function(url) {
+			this.url = url;
+		}	
+		this.setPage = function(page) {
+			this.data.page = page;
+		}
+		this.setOrder = function(value) {
+			this.data.order = value;
+		}	
+		this.setOrderType = function(value) {
+			this.data.order_type = value;	
+		}	
+		this.setStatus = function(value) {
+			this.data.status = value;	
+		}	
+		this.setSearch = function(value) {
+			this.data.search = value;
+		}	
+		this.getOrderType = function() {
+			return this.data.order_type;	
+		}
+		this.getBaseIcon = function() {
+			return this.baseIconClass;	
+		}	
+		this.getIcon = function() {
+			if(this.getOrderType() == 'asc') {
+				return 'glyphicon-arrow-up';	
+			} 
+			return 'glyphicon-arrow-down';	
+		}
 	
 	//EXECUTE THE QUERY FROM PROPERTIES
-	obj.query = function() {
+	this.query = function() {
 		jQuery.ajax({
-			url: obj.url,
-			data: obj.data,
+			url: self.url,
+			data: self.data,
 			success: function(data) {
-				jQuery('#list-content').html(data);	
+				jQuery(self.wrapperElement).html(data);
 			}
 		});
 	}
 	
-	
 	/* HANDLER FUNCTIONS */	
-	obj.searchHandler = function() {
-		var self = this;
-		obj.setSearch(self.value);
-		obj.setPage(1);
-		obj.query();
-	}
-	obj.orderHandler = function() {
-		var self = this;
-		
-		var order_type = '';
-		var order = '';
-		
-		//check if the clicked item was current sort
-		//if so, flip the sort type.
-		//otherwise, retrieve default sort type.
-		if(jQuery(self).hasClass('active')) {
-			var current = jQuery(self).data('order-type');
-			order_type = obj.orderFlip(current);
-			jQuery(self).data('order-type', order_type);
-		} else {
-			jQuery('.sort-link').removeClass('active');
-			jQuery(self).addClass('active');
-			order_type = jQuery(self).data('default')
+		this.searchHandler = function() {
+			var element = this;
+			self.setSearch(element.value);
+			self.setPage(1);
+			self.query();
 		}
-		
-		//retrieve the order from the DOM.
-		order = jQuery(self).data('order');
-		
-		//set the properties of the list object.
-		obj.setOrder(order);
-		obj.setOrderType(order_type);
-		obj.setPage(1);
-		
-		//remove the old icon and generate a new one.
-		obj.removeSortIcon();
-		jQuery(self).append(obj.generateSortIcon());		
-		
-		obj.query();
-	}	
-	obj.pageHandler = function() {
-		var self = this;
-		
-		//retrieve the page from the DOM
-		var page = jQuery(self).data('page');
-		
-		//set the properiest of the list object.
-		obj.setPage(page);
-		obj.query();
-	}	
-	obj.statusHandler = function() {
-		var self = this;
-		
-		//retrieve data from the DOM object.
-		var status = jQuery(self).data('status');
-		
-		//manipulate the DOM accordingly
-		jQuery('.status-link').removeClass('active');
-		jQuery(self).addClass('active');
-		
-		//set properties of the list object.
-		obj.setStatus(status);
-		obj.setPage(1);		
-		obj.query();		
-	}
-		
-	return obj;
-})();
-	
+		this.orderHandler = function() {
+			var element = this;
+						
+			var newOrder = jQuery(element).data('order')			
+			var defaultType = jQuery(element).data('default');
+				
+			if(jQuery(element).hasClass('active')) {
+				//flip the current sort-type
+				self.flipOrder();
+			} else {				
+				//set the order-type to the default.
+				self.setOrderType(defaultType);
+			}
+			
+			self.setOrder(newOrder);
+			self.setPage(1);
+			
+			//edit the DOM objects
+			jQuery('.sort-link').removeClass('active');
+			jQuery(element).addClass('active');
+			self.removeSortIcon();
+			var newIcon = self.generateSortIcon();
+			jQuery(element).append(newIcon);		
+			
+			self.query();
+		}	
+		this.pageHandler = function() {
+			var element = this;
+			
+			//retrieve the page from the DOM
+			var page = jQuery(element).data('page');
+			
+			//set the properiest of the list object.
+			self.setPage(page);
+			self.query();
+		}	
+		this.statusHandler = function() {
+			var element = this;
+			
+			//retrieve data from the DOM object.
+			var status = jQuery(element).data('status');
+			
+			//manipulate the DOM accordingly
+			jQuery('.status-link').removeClass('active');
+			jQuery(element).addClass('active');
+			
+			//set properties of the list object.
+			self.setStatus(status);
+			self.setPage(1);		
+			self.query();		
+		}	
+}
+
 jQuery(document).ready(function(){
-	//retrieve the action url from the DOM and set the object.
-	var Url = jQuery('#list-content').data('url');
-	registration.list.setUrl(Url);
+	var list = new registration.list('#list-content');
 	
 	//bind the event handling functions to the DOM
-	jQuery(document).on('keyup', '#search', registration.list.searchHandler);
-	jQuery(document).on('click', '.sort-link', registration.list.orderHandler);
-	jQuery(document).on('click', '.pagination-link', registration.list.pageHandler);
-	jQuery(document).on('click', '.status-link', registration.list.statusHandler);	
+	jQuery(document).on('keyup', '#search', list.searchHandler);
+	jQuery(document).on('click', '.sort-link', list.orderHandler);
+	jQuery(document).on('click', '.pagination-link', list.pageHandler);
+	jQuery(document).on('click', '.status-link', list.statusHandler);	
 	jQuery(document).on('click', '.update-status', registration.updateHandler);
 });
