@@ -7,27 +7,13 @@
 @section('head')
 	<link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <script src="/js/app/inquiry.js"></script>
-<style>
+	<style>
 		.wrapper {
 			line-height: 18px;	
 		}
 		.inquiry-row {
 			border-bottom: 2px solid #EEE;
 			padding:5px;
-		}
-		.description {
-			font-size:12px;
-		}
-		.margin-top {
-			margin-top: 10px;
-		}
-		
-		.label-italic {
-			font-style:italic;
-			margin-right:5px;
-		}
-		.timestamp {
-			color: #999;
 		}
 	</style>
 @stop

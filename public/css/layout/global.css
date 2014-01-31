@@ -19,9 +19,9 @@
 		border: 1px solid #ccc;
 		border-radius: 4px;
 	}
+	
 	.top-label {
-		width:150px;
-		height: 20px;
+		width:150px;		
 		min-width: 16px;
 		padding: 4px 5px;
 		font-size: 14px;
@@ -34,6 +34,9 @@
 		border-radius: 4px 4px 0px 0px;
 		border-bottom:0px;
 		text-align:left;
+	}
+	.custom-form .input-group, .custom-form .input-prepend {
+		margin-bottom:10px;
 	}
 
 /* CONTAINERS */
@@ -143,8 +146,14 @@
 		.margin-top-small {
 			margin-top:5px;
 		}
+		.margin-bottom-small {
+			margin-bottom:5px;
+		}
 		.margin-top {
 			margin-top: 10px;
+		}
+		.margin-bottom {
+			margin-bottom:10px;	
 		}
 		.margin-bottom-large {
 			margin-bottom:20px;

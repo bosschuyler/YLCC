@@ -3,7 +3,13 @@ jQuery(document).ready(function() {
 		submitHandler: function(form) {
 			form.submit();
 		},
-		errorClass: 'notice-area-error margin-top-small'
+		errorClass: 'fail',
+		errorElement: 'div',
+		errorPlacement: function(error, element) {
+			error.addClass('notice-area-error margin-bottom');
+			element.parent("div").after(error);
+
+		}
 	});
 	
 	jQuery('#tour-date').datepicker();

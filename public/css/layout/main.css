@@ -63,6 +63,7 @@ body {
 	background: -moz-linear-gradient(top, #a9a9a9, #7a7a7a); /* for firefox 3.6+ */
 	border-top: solid 1px #999;
 	padding:0px 3px;
+	min-width:735px;
 }
 .menu-link {
 	float:left;
@@ -86,6 +87,8 @@ body {
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
 }
+
+
 .menu-spacer {
 	float:left;
 	padding:5px;
@@ -109,4 +112,27 @@ body {
 	max-width:900px;
 	margin:15px auto;
 	padding:20px 0px 0px 0px;
+}
+
+@media screen and (max-width: 768px) {
+	.body-wrapper{
+		padding:0;	
+	}
+	.menu-bar {		
+		position:relative;
+		top:-10px;
+		right:0;
+		width:100%;
+		min-width: inherit;
+		padding:0px 5px;
+	}
+	.menu-bar a, .menu-bar a:hover {
+		text-decoration:none;
+	}
+	.menu-link {
+		float:none;	
+		
+		margin: 5px 0px;
+		height:32px;
+	}
 }

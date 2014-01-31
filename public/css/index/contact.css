@@ -1,19 +1,8 @@
 @charset "utf-8";
 /* CSS Document */
 	
-	/* OVERRIDE */
-	.tw-bs .input-append .add-on, .tw-bs .input-prepend .label {
-		width: 100px;
-		text-align:left;
-	}
-	.tw-bs .input-append .add-on, .tw-bs .input-prepend input {
-		width: 263px;
-		text-align:left;
-	}
-	
 	/* FORM SPECIFIC ADJUSTMENTS */
 		#inquery-comment {
-			width:375px; 
 			height:100px; 
 			border-radius: 0px 4px 4px 4px;
 		}
