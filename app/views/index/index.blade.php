@@ -1,18 +1,16 @@
+@extends('layouts.main')
+
 @section('title')
     Grand Haven Child Care Services
 @stop
 
 
-
 @section('head')
-
-<link href="/laravel/css/style.css" rel="stylesheet" type="text/css">
-
-
-<link href="/js/nivo/nivo-slider.css" rel="stylesheet" type="text/css">
-<link href="/js/nivo/themes/default/default.css" rel="stylesheet" type="text/css">
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
-<script src="/js/nivo/jquery.nivo.slider.pack.js"></script> 
+    <link href="/laravel/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/js/nivo/nivo-slider.css" rel="stylesheet" type="text/css">
+    <link href="/js/nivo/themes/default/default.css" rel="stylesheet" type="text/css">
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
+    <script src="/js/nivo/jquery.nivo.slider.pack.js"></script> 
 @stop
 
 

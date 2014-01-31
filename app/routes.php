@@ -21,6 +21,7 @@
 |
 
 */
+Route::get('registration/mail', array('as' => 'registration.mail', 'uses' => 'RegistrationController@sendMail'));
 
 /* INDEX ROUTES */
 Route::get('/', array('as' => 'home', 'uses'=>'IndexController@dark'));
@@ -48,3 +49,5 @@ Route::get('registration/{registration_id}', array('as' => 'registration.details
 Route::get('pre-register', array('as' => 'registration.form', 'uses' => 'RegistrationController@getForm'));
 Route::post('registration-confirmed', array('as' => 'registration.process', 'uses' => 'RegistrationController@postSave'));
 Route::post('registration/update-status', array('as' => 'registration.update.status', 'uses' => 'RegistrationController@postUpdateStatus'));
+
+

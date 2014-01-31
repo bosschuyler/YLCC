@@ -3,6 +3,16 @@ class RegistrationController extends BaseController {
 	
 	public $layout = 'layouts.main';
 		
+	public function sendMail() {
+		
+		$mailer = new MailSender();
+		$mailer->addTo('schuyler.bos@gmail.com', 'Schuyler Bos');
+		$mailer->setHtml(View::make('index.index'));
+		$mailer->send();
+		
+		return 'thanks';
+	}
+		
 	public function postUpdateStatus() {
 		//check if this is a valid user
 		//else return the login route to the calling JS
