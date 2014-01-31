@@ -3,7 +3,7 @@ var registration = {
 	create: function() {
 		this.data = {
 			id: '',
-			status: ''	
+			status: ''
 		}
 				
 		this.setStatus = function(value) {
