@@ -1,16 +1,22 @@
 <?php
+use Illuminate\Support\Facades\Config;
+
 class RegistrationController extends BaseController {
 	
 	public $layout = 'layouts.main';
 		
 	public function sendMail() {
+		$registration = Registration::find(30);
+		$view = View::make('emails.registration.notify');
+		$view->registration = $registration;
 		
-		$mailer = new MailSender();
-		$mailer->addTo('schuyler.bos@gmail.com', 'Schuyler Bos');
-		$mailer->setHtml(View::make('index.index'));
-		$mailer->send();
+		$mail = App::make('mail');
+		$mail->addTo('schuyler.bos@gmail.com', 'Schuyler Bos');
+		$mail->subject("New Registration");
+		$mail->html($view);
+		$mail->send();
 		
-		return 'thanks';
+		return 'test';
 	}
 		
 	public function postUpdateStatus() {
