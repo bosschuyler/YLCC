@@ -26,4 +26,5 @@
         </tr>                    
     </table>
 </div>
+<h3><a href="{{ URL::route('registration.details', array($registration->id)) }}">View Registration</a></h3>
 

@@ -154,6 +154,7 @@ class InquiryController extends BaseController {
         if(Auth::check()) {
             $user = Auth::user();
         } else {
+			Session::put('attempted-route', Request::url());
             return Redirect::route('login.form');
         }
 		

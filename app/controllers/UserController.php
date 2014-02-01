@@ -17,6 +17,12 @@ class UserController extends BaseController {
         $login['password'] = $_REQUEST['password'];
     
         if (Auth::attempt($login)) {
+			if(Session::has('attempted-route')) {
+				$route = Session::get('attempted-route');
+				Session::forget('attempted-route');
+				return Redirect::to($route);	
+			}
+			
             return Redirect::route('inquiry.list');
         }
 		

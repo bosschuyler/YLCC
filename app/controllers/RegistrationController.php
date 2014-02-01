@@ -146,6 +146,13 @@ class RegistrationController extends BaseController {
 	}
 	
 	public function getDetails($id) {
+		 if(Auth::check()) {
+            $user = Auth::user();
+        } else {
+            Session::put('attempted-route', Request::url());
+			return Redirect::route('login.form');
+        }
+				
 		$registration = Registration::find($id);
 		if($registration != null) {
 			$view = View::make('registration.details');	
