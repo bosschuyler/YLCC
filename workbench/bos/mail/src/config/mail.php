@@ -1,6 +1,11 @@
 <?PHP 
 	return array(
-		'domain'=>'younglifecc.com'
+		'auth_key' => '',
+		'domain'=>'',
+		'from' => array(
+			'name' => '',
+			'email' => ''
+		)	
 	);
 
 ?>
