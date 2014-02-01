@@ -20,4 +20,4 @@
         </tr>                    
     </table>
 </div>
-
+<h3><a href="{{ URL::route('inquiry.details', array($inquiry->id)) }}">View Inquiry</a></h3>

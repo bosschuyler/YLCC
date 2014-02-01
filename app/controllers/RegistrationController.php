@@ -5,20 +5,6 @@ class RegistrationController extends BaseController {
 	
 	public $layout = 'layouts.main';
 		
-	public function sendMail() {
-		$registration = Registration::find(30);
-		$view = View::make('emails.registration.notify');
-		$view->registration = $registration;
-		
-		$mail = App::make('mail');
-		$mail->addTo('schuyler.bos@gmail.com', 'Schuyler Bos');
-		$mail->subject("New Registration");
-		$mail->html($view);
-		$mail->send();
-		
-		return 'test';
-	}
-		
 	public function postUpdateStatus() {
 		//check if this is a valid user
 		//else return the login route to the calling JS
@@ -137,6 +123,17 @@ class RegistrationController extends BaseController {
 		$registration = new Registration($_REQUEST);
 		if($registration->isValid()) {
 			$registration->save();
+			
+			//EMAIL
+			$view = View::make('emails.registration.notify');
+			$view->registration = $registration;
+			
+			$mail = App::make('mail');
+			$mail->addTo('schuyler.bos@gmail.com', 'Schuyler Bos');
+			$mail->subject("New Registration");
+			$mail->html($view);
+			$mail->send();
+			
 			return View::make('registration.save');
 		} else {
 			Session::flash('loginError', $registration->error());	

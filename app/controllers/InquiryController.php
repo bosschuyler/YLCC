@@ -141,6 +141,17 @@ class InquiryController extends BaseController {
 		$contact_inquiry = new ContactInquiry($_REQUEST);
 		if($contact_inquiry->isValid()) {
 			$contact_inquiry->save();
+			
+			//EMAIL
+			$view = View::make('emails.inquiry.notify');
+			$view->inquiry = $contact_inquiry;
+			
+			$mail = App::make('mail');
+			$mail->addTo('schuyler.bos@gmail.com', 'Schuyler Bos');
+			$mail->subject("New Inquiry");
+			$mail->html($view);
+			$mail->send();
+			
 			return View::make('inquiry.save');
 		} else {
 			Session::flash('process-error', $contact_inquiry->error());	
