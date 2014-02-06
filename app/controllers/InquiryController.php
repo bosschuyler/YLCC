@@ -172,7 +172,7 @@ class InquiryController extends BaseController {
 			
 			//USER NOTIFY
 			$user_view = View::make('emails.inquiry.user-notify');
-			$user_view->inquiry = $inquiry;
+			$user_view->inquiry = $contact_inquiry;
 			
 			$user_mail = App::make('mail');
 			$user_mail->addTo('schuyler.bos@gmail.com', 'Schuyler Bos');
