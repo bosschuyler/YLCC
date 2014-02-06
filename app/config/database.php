@@ -47,14 +47,13 @@ return array(
 	'connections' => array(
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'db',
-			'username'  => 'user',
-			'password'  => 'pass',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-
+ 			'host'      => 'localhost',
+ 			'database'  => 'ylccc_main',
+ 			'username'  => 'ylccc_main',
+ 			'password'  => 'C0asters',
+ 			'charset'   => 'utf8',
+ 			'collation' => 'utf8_unicode_ci',
+ 			'prefix'    => '',
 		),
 	),
 
