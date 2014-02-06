@@ -124,7 +124,7 @@ class RegistrationController extends BaseController {
 		if($registration->isValid()) {
 			$registration->save();
 			
-			//EMAIL
+			//ADMIN NOTIFY
 			$view = View::make('emails.registration.notify');
 			$view->registration = $registration;
 			
@@ -133,6 +133,16 @@ class RegistrationController extends BaseController {
 			$mail->subject("New Registration");
 			$mail->html($view);
 			$mail->send();
+			
+			//USER NOTIFY
+			$user_view = View::make('emails.registration.user-notify');
+			$user_view->registration = $registration;
+			
+			$user_mail = App::make('mail');
+			$user_mail->addTo('schuyler.bos@gmail.com', 'Schuyler Bos');
+			$user_mail->subject("Registration Received!");
+			$user_mail->html($user_view);
+			$user_mail->send();
 			
 			return View::make('registration.save');
 		} else {

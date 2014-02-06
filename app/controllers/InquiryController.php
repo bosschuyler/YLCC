@@ -142,7 +142,7 @@ class InquiryController extends BaseController {
 		if($contact_inquiry->isValid()) {
 			$contact_inquiry->save();
 			
-			//EMAIL
+			//ADMIN NOTIFY
 			$view = View::make('emails.inquiry.notify');
 			$view->inquiry = $contact_inquiry;
 			
@@ -151,6 +151,16 @@ class InquiryController extends BaseController {
 			$mail->subject("New Inquiry");
 			$mail->html($view);
 			$mail->send();
+			
+			//USER NOTIFY
+			$user_view = View::make('emails.inquiry.user-notify');
+			$user_view->inquiry = $inquiry;
+			
+			$user_mail = App::make('mail');
+			$user_mail->addTo('schuyler.bos@gmail.com', 'Schuyler Bos');
+			$user_mail->subject("Request Received!");
+			$user_mail->html($user_view);
+			$user_mail->send();
 			
 			return View::make('inquiry.save');
 		} else {
