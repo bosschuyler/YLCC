@@ -21,6 +21,7 @@
             	@else
                 	<div class="btn btn-success update-status" data-status="Read" data-id="{{ $inquiry->id }}" data-url="{{ URL::route('inquiry.update.status') }}" data-callback="{{ URL::route('inquiry.details', array($inquiry->id)) }}"><strong>Mark Read</strong></div>
                 @endif
+                <div class="btn btn-danger delete" data-id="{{ $inquiry->id }}" data-url="{{ URL::route('inquiry.delete') }}" data-callback="{{ URL::route('inquiry.list') }}"><i class="glyphicon glyphicon-remove"></i> Delete</div>
             </div>
 		</div>
         <br />

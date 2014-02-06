@@ -23,6 +23,24 @@ class InquiryController extends BaseController {
 		return Response::json(array('success' =>true, 'location' => URL::route('inquiry.list')) );
 	}
 	
+	public function postDelete() {
+		//check if this is a valid user
+		//else return the login route to the calling JS
+		if(Auth::check()) {
+            $user = Auth::user();
+        } else {
+			return Response::json(array('success' =>false, 'location' => URL::route('login.form')) );
+        }
+		
+		//Retrieve the inquiry by the ID, set the passed status
+		//and remove
+		$inquiry = ContactInquiry::find(Input::get('id'));
+		$inquiry->delete();
+		
+		//return
+		return Response::json(array('success' =>true));
+	}
+	
 	public function getList() {
 		//check if this is a valid user.
         if(Auth::check()) {

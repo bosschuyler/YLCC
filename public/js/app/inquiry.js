@@ -25,6 +25,17 @@ var inquiry = {
 				}
 			});
 		}
+		this.delete = function(url, callback) {
+			var self = this;
+			jQuery.ajax({
+				url: url,
+				type: 'POST',
+				data: self.data,
+				success:function(data) {
+					window.location = callback;
+				}
+			});	
+		}
 	},
 	updateHandler: function() {
 		//retrieve the data off the DATA DOM
@@ -38,6 +49,21 @@ var inquiry = {
 		temp.setStatus(status);
 		temp.setId(id);		
 		temp.updateStatus(url, callback);
+	},
+	deleteHandler: function() {
+		var result = confirm('Are you sure you want to delete this forever?');
+		if(result) {
+			//retrieve the data off the DATA DOM
+			var url = jQuery(this).data('url');
+			var callback = jQuery(this).data('callback');	
+			var status = jQuery(this).data('status');
+			var id = jQuery(this).data('id');
+			
+			//create instance of the inquiry object.
+			var temp = new inquiry.create();
+			temp.setId(id);
+			temp.delete(url, callback);
+		}
 	}
 }
 
@@ -47,6 +73,7 @@ inquiry.list = function(selector) {
 	this.wrapperElement = jQuery(selector);
 	this.url = this.wrapperElement.data('url');
 	this.baseIconClass = "glyphicon";
+	this.timer = null;
 	
 	this.data = {
 		page: 1,
@@ -126,10 +153,11 @@ inquiry.list = function(selector) {
 	
 	/* HANDLER FUNCTIONS */	
 		this.searchHandler = function() {
+			clearTimeout (self.timer);    					
 			var element = this;
 			self.setSearch(element.value);
 			self.setPage(1);
-			self.query();
+			self.timer = setTimeout(self.query, 200);
 		}
 		this.orderHandler = function() {
 			var element = this;
@@ -193,4 +221,5 @@ jQuery(document).ready(function(){
 	jQuery(document).on('click', '.pagination-link', list.pageHandler);
 	jQuery(document).on('click', '.status-link', list.statusHandler);	
 	jQuery(document).on('click', '.update-status', inquiry.updateHandler);
+	jQuery(document).on('click', '.delete', inquiry.deleteHandler);
 });

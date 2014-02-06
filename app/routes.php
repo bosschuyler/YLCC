@@ -43,11 +43,13 @@ Route::get('inquiry/{inquiry_id}', array('as' =>'inquiry.details', 'uses'=>'Inqu
 Route::get('contact-us', array('as' => 'inquiry.form', 'uses' => 'InquiryController@getForm'));
 Route::post('inquiry-save', array('as' => 'inquiry.process', 'uses' => 'InquiryController@postSave'));
 Route::post('inquiry/update-status', array('as' => 'inquiry.update.status', 'uses' => 'InquiryController@postUpdateStatus'));
+Route::post('inquiry/delete', array('as' => 'inquiry.delete', 'uses' => 'InquiryController@postDelete'));
 
 Route::get('registration', array('as' => 'registration.list', 'uses' => 'RegistrationController@getList'));
 Route::get('registration/{registration_id}', array('as' => 'registration.details', 'uses' => 'RegistrationController@getDetails'));
 Route::get('pre-register', array('as' => 'registration.form', 'uses' => 'RegistrationController@getForm'));
 Route::post('registration-confirmed', array('as' => 'registration.process', 'uses' => 'RegistrationController@postSave'));
 Route::post('registration/update-status', array('as' => 'registration.update.status', 'uses' => 'RegistrationController@postUpdateStatus'));
+Route::post('registration/delete', array('as' => 'registration.delete', 'uses' => 'RegistrationController@postDelete'));
 
 

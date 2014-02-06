@@ -160,6 +160,9 @@
 		.margin-left-large {
 			margin-left: 20px;
 		}
+		.margin-left {
+			margin-left: 10px;	
+		}
 		.margin-small {
 			margin: .5%;
 		}

@@ -22,6 +22,7 @@
             	@else
                 	<div class="btn btn-success update-status" data-status="Confirmed" data-id="{{ $registration->id }}" data-url="{{ URL::route('registration.update.status') }}" data-callback="{{ URL::route('registration.details', array($registration->id)) }}"><strong>Confirm</strong></div>
                 @endif
+                <div class="btn btn-danger delete" data-id="{{ $registration->id }}" data-url="{{ URL::route('registration.delete') }}" data-callback="{{ URL::route('registration.list') }}"><i class="glyphicon glyphicon-remove"></i> Delete</div>
             </div>
 		</div>
         <br />

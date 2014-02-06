@@ -24,6 +24,24 @@ class RegistrationController extends BaseController {
 		//return
 		return Response::json(array('success' =>true));
 	}
+	
+	public function postDelete() {
+		//check if this is a valid user
+		//else return the login route to the calling JS
+		if(Auth::check()) {
+            $user = Auth::user();
+        } else {
+			return Response::json(array('success' =>false, 'location' => URL::route('login.form')) );
+        }
+		
+		//Retrieve the inquiry by the ID, set the passed status
+		//and remove
+		$registration = Registration::find(Input::get('id'));
+		$registration->delete();
+		
+		//return
+		return Response::json(array('success' =>true));
+	}
 		
 	public function getList() {		
 		//check if user is authenticated, otherwise kick to login page
